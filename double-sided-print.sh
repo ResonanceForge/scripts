@@ -41,20 +41,20 @@ qpdf "$INPUT_FILE" --pages . 1-z:even -- "$TEMP_EVEN"
 qpdf "$INPUT_FILE" --pages . 1-z:odd -- "$TEMP_ODD"
 
 # 4. Print Evens
-echo "Sending EVEN pages to printer '$PRINTER'..."
-lp -d "$PRINTER" "$TEMP_EVEN"
+echo "Sending ODD pages to printer '$PRINTER'..."
+lp -d "$PRINTER" "$TEMP_ODD"
 
 # 5. User Interaction
 echo "----------------------------------------------------"
 echo "Step 1 complete."
 echo "Please take the paper, flip it, and put it back in the tray."
 echo "Ensure orientation matches your printer's manual duplex style."
-echo "Press [Enter] when ready to print ODD pages..."
+echo "Press [Enter] when ready to print EVEN pages..."
 read -r
 echo "----------------------------------------------------"
 
 # 6. Print Odds
 echo "Sending ODD pages to printer '$PRINTER'..."
-lp -d "$PRINTER" "$TEMP_ODD"
+lp -d "$PRINTER" "$TEMP_EVEN"
 
 echo "Success! All jobs sent to queue."
